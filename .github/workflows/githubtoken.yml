@@ -4,5 +4,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Use GITHUB_TOKEN
-        run: echo "Token: ${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Use GITHUB_TOKEN securely
+        run: echo "Using GITHUB_TOKEN without exposing it!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
