@@ -28,7 +28,7 @@ jobs:
 
       - name: Build the application
         run: |
-          cd class1/example3/
+          cd application/
           npm run build
 
   test:
@@ -46,12 +46,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd class1/example3/
+          cd application/
           npm install
 
       - name: Run tests
         run: |
-          cd class1/example3/
+          cd application/
           npm test
 
   deploy:
