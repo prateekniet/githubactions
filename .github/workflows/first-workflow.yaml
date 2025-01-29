@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd class1/example3/
+          cd application/
           npm install
 
       - name: Build the application
