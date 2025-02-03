@@ -3,18 +3,21 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        type: environment
+        type: string  # Changed from 'environment' to 'string' (GitHub Actions does not support 'environment' type)
         description: 'Choose the environment'
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: ${{ inputs.environment }}
+    environment: 
+      name: ${{ github.event.inputs.environment }}  # Corrected input reference
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
       - name: Install dependencies
         run: npm install
+      
       - name: Print environment
         shell: bash
-        run: echo 'Environment: ${{ inputs.environment }}'
+        run: echo "Environment: ${{ github.event.inputs.environment }}"
