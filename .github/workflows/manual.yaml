@@ -1,22 +1,27 @@
-name: CI Example
-on: 
+name: Manual Workflow Demo
+
+on:
   workflow_dispatch:
     inputs:
+      name:
+        description: "Enter your name"
+        required: true
+        default: "Deepak"
       environment:
-        type: string  # Use 'string' instead of 'environment'
-        description: 'Choose the environment'
+        description: "Select an environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - development
+          - staging
+          - production
 
 jobs:
-  build:
+  demo-job:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.environment }}  # Set environment directly as a string
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Print environment
-        shell: bash
-        run: echo "Environment: ${{ github.event.inputs.environment }}"
+      - name: Print User Input
+        run: |
+          echo "Hello, ${{ github.event.inputs.name }}!"
+          echo "You selected the ${{ github.event.inputs.environment }} environment."
