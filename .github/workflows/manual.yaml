@@ -3,14 +3,13 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        type: string  # Changed from 'environment' to 'string' (GitHub Actions does not support 'environment' type)
+        type: string  # Use 'string' instead of 'environment'
         description: 'Choose the environment'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: 
-      name: ${{ github.event.inputs.environment }}  # Corrected input reference
+    environment: ${{ github.event.inputs.environment }}  # Set environment directly as a string
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
