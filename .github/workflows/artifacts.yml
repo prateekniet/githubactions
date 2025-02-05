@@ -1,6 +1,6 @@
 name: Artifacts Example
-on:
-  push:
+#on:
+#  push:
 
 jobs:
   build:
