@@ -1,6 +1,5 @@
 name: Python Coverage Report
 
-
 on:
   push:
     branches:
