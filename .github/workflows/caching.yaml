@@ -1,8 +1,8 @@
 name: Caching Example
 
 
-on:
-  push:
+# on:
+#   push:
 
 jobs:
   build:
