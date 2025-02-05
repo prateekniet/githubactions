@@ -1,7 +1,7 @@
 name: Service demo with PostgreSQL
 
-# on:
-#   push:
+on:
+  push:
 
 jobs:
   test:
