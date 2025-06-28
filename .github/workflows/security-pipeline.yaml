@@ -16,18 +16,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: 16
+          cache: npm
+          cache-dependency-path: application/package-lock.json
 
       - name: Install dependencies
         run: npm ci
+        working-directory: application
 
       - name: Run SAST scan
         uses: github/codeql-action/init@v2
         with:
           languages: javascript
+        working-directory: application
 
       - name: Run CodeQL analysis
         uses: github/codeql-action/analyze@v2
+        working-directory: application
 
       - name: Check dependencies
         run: npm audit --audit-level=high
