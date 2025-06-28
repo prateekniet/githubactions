@@ -25,12 +25,12 @@ jobs:
         working-directory: application
 
       - name: Run SAST scan
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: javascript
 
       - name: Run CodeQL analysis
-        uses: github/codeql-action/analyze@v2
+        uses: github/codeql-action/analyze@v3
      
 
       - name: Check dependencies
