@@ -28,11 +28,10 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: javascript
-        working-directory: application
 
       - name: Run CodeQL analysis
         uses: github/codeql-action/analyze@v2
-        working-directory: application
+     
 
       - name: Check dependencies
         run: npm audit --audit-level=high
